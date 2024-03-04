@@ -36,7 +36,6 @@ public void draw ()
   background( 0 ); 
   if (isWon() == true)
     displayWinningMessage();
-  //System.out.print(PFont.list());
 }
 
 public void setMines()
@@ -163,14 +162,13 @@ public class MSButton
     } else if (countMines(myRow, myCol) > 0)
     {
       setLabel(countMines(myRow, myCol));
-      System.out.println(countMines(myRow, myCol));
     } else
     {
       for (int i = myRow - 1; i < myRow + 2; i++)
       {
         for (int j = myCol - 1; j < myCol + 2; j++)
         {
-          if (isValid(i, j) && buttons[i][j].clicked == false && !(buttons[myRow][myCol] == buttons[i][j]))
+          if (isValid(i, j) && !buttons[i][j].clicked && !(buttons[myRow][myCol] == buttons[i][j]))
           {
             buttons[i][j].mousePressed();
           }
